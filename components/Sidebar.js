@@ -119,7 +119,6 @@ const Sidebar = ({ visible, activeMenuItem, onClose, onMenuItemPress, onSignOut 
   const navigation = useNavigation();
 
   if (!visible) return null;
-
   const handleNavigation = (menuItem) => {
     onMenuItemPress(menuItem);
     switch (menuItem) {
@@ -130,10 +129,10 @@ const Sidebar = ({ visible, activeMenuItem, onClose, onMenuItemPress, onSignOut 
         navigation.navigate('SubscriptionScreen');
         break;
       case 'routes':
-        navigation.navigate('SubscriptionScreen');
+        navigation.navigate('JourneyScreen');
         break;
-      case 'favorites':
-        console.log('Navigate to favorites');
+      case 'lost':
+        navigation.navigate('LostFoundScreen');
         break;
       case 'settings':
         console.log('Navigate to settings');
@@ -236,22 +235,22 @@ const Sidebar = ({ visible, activeMenuItem, onClose, onMenuItemPress, onSignOut 
           <TouchableOpacity
             style={[
               sidebarStyles.menuItem,
-              activeMenuItem === 'favorites' && sidebarStyles.activeMenuItem,
+              activeMenuItem === 'lost' && sidebarStyles.activeMenuItem,
             ]}
-            onPress={() => handleNavigation('favorites')}
+            onPress={() => handleNavigation('lost')}
           >
             <Ionicons
               name="star"
               size={20}
-              color={activeMenuItem === 'favorites' ? '#1976d2' : '#555'}
+              color={activeMenuItem === 'lost' ? '#1976d2' : '#555'}
             />
             <Text
               style={[
                 sidebarStyles.menuItemText,
-                activeMenuItem === 'favorites' && sidebarStyles.activeMenuItemText,
+                activeMenuItem === 'lost' && sidebarStyles.activeMenuItemText,
               ]}
             >
-              Favorites
+              Lost & Found
             </Text>
           </TouchableOpacity>
 
